@@ -9,11 +9,14 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { Suspense } from "react";
 import Overlay from "./components/Overlay";
 import * as THREE from "three";
+import { Perf } from "r3f-perf";
+import Sprite from "./components/Sprite";
 
 const App = () => {
   return (
     <>
       <Canvas>
+        <Perf />
         <Suspense fallback={null}>
           <Sketch />
         </Suspense>
@@ -43,6 +46,12 @@ const Sketch = () => {
     "/tv1.ktx2",
     "/tv2.ktx2",
   ]);
+  const geo = new THREE.PlaneGeometry();
+  const mat = new THREE.MeshBasicMaterial({
+    transparent: true,
+    opacity: 1,
+  });
+  const rotation = new THREE.Euler(0, 0, Math.PI);
 
   return (
     <>
@@ -52,26 +61,7 @@ const Sketch = () => {
         </Scroll>
         <Scroll>
           <Rig />
-          <SpriteAnimator
-            scale={5}
-            position={[10, 0, 0]}
-            startFrame={0}
-            autoPlay={true}
-            loop={true}
-            numberOfFrames={20}
-            alphaTest={0.01}
-            textureImageURL={"/nakamura.webp"}
-          />
-          <SpriteAnimator
-            scale={5}
-            position={[-10, 0, 0]}
-            startFrame={0}
-            autoPlay={true}
-            loop={true}
-            numberOfFrames={20}
-            alphaTest={0.01}
-            textureImageURL={"/kodera.webp"}
-          />
+          <Sprite />
         </Scroll>
         <Scroll>
           <SpriteAnimator
@@ -89,54 +79,34 @@ const Sketch = () => {
           <mesh
             position={[-2, 4, 0]}
             scale={[3, 3, 1]}
-            rotation={[Math.PI, 0, 0]}
+            rotation={[0, 0, Math.PI]}
+            geometry={geo}
           >
-            <planeGeometry />
-            <meshBasicMaterial
-              map={tv1}
-              side={THREE.DoubleSide}
-              transparent
-              opacity={1}
-            />
+            <meshBasicMaterial map={tv1} transparent opacity={1} />
           </mesh>
           <mesh
             position={[2, 4.5, 0]}
             scale={[5, 5, 1]}
-            rotation={[Math.PI, 0, 0]}
+            rotation={[0, 0, Math.PI]}
+            geometry={geo}
           >
-            <planeGeometry />
-            <meshBasicMaterial
-              map={tv2}
-              side={THREE.DoubleSide}
-              transparent
-              opacity={1}
-            />
+            <meshBasicMaterial map={tv2} transparent opacity={1} />
           </mesh>
           <mesh
             position={[0, -30, -1]}
             scale={[10, 15, 1]}
-            rotation={[Math.PI, 0, 0]}
+            rotation={[0, 0, Math.PI]}
+            geometry={geo}
           >
-            <planeGeometry />
-            <meshBasicMaterial
-              map={boss}
-              side={THREE.DoubleSide}
-              transparent
-              opacity={1}
-            />
+            <meshBasicMaterial map={boss} transparent opacity={1} />
           </mesh>
           <mesh
             position={[0, -35, -1]}
             scale={[30, 15, 1]}
-            rotation={[Math.PI, 0, 0]}
+            rotation={[0, 0, Math.PI]}
+            geometry={geo}
           >
-            <planeGeometry />
-            <meshBasicMaterial
-              map={front}
-              side={THREE.DoubleSide}
-              transparent
-              opacity={1}
-            />
+            <meshBasicMaterial map={front} transparent opacity={1} />
           </mesh>
           <mesh
             position={[0, -35, -3]}
