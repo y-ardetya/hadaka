@@ -568,6 +568,32 @@
   resolved "https://registry.yarnpkg.com/@stitches/react/-/react-1.2.8.tgz#954f8008be8d9c65c4e58efa0937f32388ce3a38"
   integrity sha512-9g9dWI4gsSVe8bNLlb+lMkBYsnIKCZTmvqvDG+Avnn69XfmHZKiaMrx7cgTaddq7aTPPmXiTsbFcUy0xgI4+wA==
 
+"@theatre/core@^0.6.2":
+  version "0.6.2"
+  resolved "https://registry.yarnpkg.com/@theatre/core/-/core-0.6.2.tgz#8596c993c0203e86003e6b8b08ad7782c02c7c31"
+  integrity sha512-AmIIJ4rcSREn2VbNRH6cchIBj9hG9+lEkhVrABDfXojnjMJK/ZzX5dyaJGGgyjye2jKmc4sItoyEqbF7jdkqJQ==
+  dependencies:
+    "@theatre/dataverse" "0.6.2"
+
+"@theatre/dataverse@0.6.2":
+  version "0.6.2"
+  resolved "https://registry.yarnpkg.com/@theatre/dataverse/-/dataverse-0.6.2.tgz#6ff8e07bc6d7aa0786e51a19645d8ee309d95197"
+  integrity sha512-wcnl6QuOVhNFzYL2rmu4lbVRR4t5A6a5ZBjZ4To+J/pKQ5MozPZtWJVPguMAa+rgoxAwVh7sZ0SNEpfYXajgaQ==
+  dependencies:
+    lodash-es "^4.17.21"
+
+"@theatre/r3f@^0.6.2":
+  version "0.6.2"
+  resolved "https://registry.yarnpkg.com/@theatre/r3f/-/r3f-0.6.2.tgz#0bd6b345c5a4ea899ae4cadca0037d8e06ee0f2e"
+  integrity sha512-nDTELQURITa8CrvD+s3gdh7ZhTQ72cYARFGJrJ4J2vN7yr2a9TyHGTo35wIgIN8FrzipM0Pmsji1HtrZ+577RA==
+
+"@theatre/studio@^0.6.2":
+  version "0.6.2"
+  resolved "https://registry.yarnpkg.com/@theatre/studio/-/studio-0.6.2.tgz#8e0fc347142552e6dbe4708d03c318a9e25c40f5"
+  integrity sha512-jX5m7aYMIuXXZXIqc5ZJPIlgP4QnU1lc3sDRcjoNantz47Qzq3/JjRt5MIrahsKKONZwgEvl5WA57qCo7IW+hA==
+  dependencies:
+    "@theatre/dataverse" "0.6.2"
+
 "@types/draco3d@^1.4.0":
   version "1.4.2"
   resolved "https://registry.yarnpkg.com/@types/draco3d/-/draco3d-1.4.2.tgz#7faccb809db2a5e19b9efb97c5f2eb9d64d527ea"
@@ -1637,6 +1663,11 @@ locate-path@^6.0.0:
   dependencies:
     p-locate "^5.0.0"
 
+lodash-es@^4.17.21:
+  version "4.17.21"
+  resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.21.tgz#43e626c46e6591b7750beb2b50117390c609e3ee"
+  integrity sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==
+
 lodash.clamp@^4.0.3:
   version "4.0.3"
   resolved "https://registry.yarnpkg.com/lodash.clamp/-/lodash.clamp-4.0.3.tgz#5c24bedeeeef0753560dc2b4cb4671f90a6ddfaa"
@@ -2199,10 +2230,10 @@ three-stdlib@^2.23.9:
     potpack "^1.0.1"
     zstddec "^0.0.2"
 
-three@^0.155.0:
-  version "0.155.0"
-  resolved "https://registry.yarnpkg.com/three/-/three-0.155.0.tgz#cca9b8ad817830c8b4fdd8f0d9a12a2e413a2672"
-  integrity sha512-sNgCYmDijnIqkD/bMfk+1pHg3YzsxW7V2ChpuP6HCQ8NiZr3RufsXQr8M3SSUMjW4hG+sUk7YbyuY0DncaDTJQ==
+three@^0.153.0:
+  version "0.153.0"
+  resolved "https://registry.yarnpkg.com/three/-/three-0.153.0.tgz#d8f2aab7b49ae4ac947fd0e24cebec11378758f0"
+  integrity sha512-OCP2/uQR6GcDpSLnJt/3a4mdS0kNWcbfUXIwLoEMgLzEUIVIYsSDwskpmOii/AkDM+BBwrl6+CKgrjX9+E2aWg==
 
 tiny-inflate@^1.0.3:
   version "1.0.3"

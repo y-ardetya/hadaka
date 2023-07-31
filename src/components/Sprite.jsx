@@ -21,10 +21,10 @@ const Sprite = () => {
     <>
       <SpriteConfig
         texture={"/nakamura.webp"}
-        scale={5}
-        position={[10, 0, 0]}
+        scale={2}
+        position={[3, -10, 2]}
       />
-      <SpriteConfig texture={"/kodera.webp"} scale={5} position={[-10, 0, 0]} />
+      <SpriteConfig texture={"/kodera.webp"} scale={2} position={[-2, -3, 2]} />
     </>
   );
 };
