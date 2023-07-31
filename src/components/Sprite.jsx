@@ -22,7 +22,7 @@ const Sprite = () => {
       <SpriteConfig
         texture={"/nakamura.webp"}
         scale={2}
-        position={[3, -10, 2]}
+        position={[2, -10, 2]}
       />
       <SpriteConfig texture={"/kodera.webp"} scale={2} position={[-2, -3, 2]} />
     </>
