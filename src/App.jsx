@@ -1,27 +1,22 @@
-import { Loader, Scroll, ScrollControls } from "@react-three/drei";
+import { Loader, ScrollControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
-import Overlay from "./components/Overlay";
-import Sprite from "./components/Sprite";
-import City from "./components/City";
 import { Perf } from "r3f-perf";
 import { Suspense } from "react";
+import Scroller from "./components/Scroller";
+import { getProject } from "@theatre/core";
+import { SheetProvider } from "@theatre/r3f";
 
 const App = () => {
+  const sheet = getProject("Fly Through").sheet("Scene");
   return (
     <>
-      <Canvas gl={{ antialias: false }} camera={{ rotation: [0.3, 0, 0] }}>
-        <Perf />
+      <Canvas gl={{ antialias: false, preserveDrawingBuffer: true }}>
+        {/* <Perf /> */}
         <Suspense fallback={null}>
-          <ScrollControls pages={6}>
-            <Scroll html>
-              <Overlay />
-            </Scroll>
-            <Scroll>
-              <Sprite />
-            </Scroll>
-            <Scroll>
-              <City />
-            </Scroll>
+          <ScrollControls pages={10}>
+            <SheetProvider sheet={sheet}>
+              <Scroller />
+            </SheetProvider>
           </ScrollControls>
         </Suspense>
       </Canvas>

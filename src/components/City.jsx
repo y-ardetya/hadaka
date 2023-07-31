@@ -1,5 +1,5 @@
-import { SpriteAnimator, useKTX2 } from "@react-three/drei";
-import React from "react";
+import { SpriteAnimator, useKTX2, useScroll } from "@react-three/drei";
+import React, { useRef } from "react";
 import * as THREE from "three";
 
 const geo = new THREE.PlaneGeometry();
@@ -15,8 +15,12 @@ const City = () => {
     "/tv1.ktx2",
     "/tv2.ktx2",
   ]);
+  const group = useRef();
+  const planeRef = useRef();
+
   return (
     <>
+      
       <group position={[0, 2, 0]}>
         <mesh
           position={[-1, 1.5, 0]}
@@ -35,7 +39,7 @@ const City = () => {
           <meshBasicMaterial map={tv2} transparent opacity={1} />
         </mesh>
       </group>
-      <group position={[0, -7, 0]} rotation={[0, 0, 0]}>
+      <group position={[0, -7, 0]} rotation={[0, 0, 0]} ref={group}>
         <SpriteAnimator
           scale={7}
           position={[0, -34, 0]}
@@ -49,7 +53,7 @@ const City = () => {
         />
 
         <mesh
-          position={[0, -30, -1]}
+          position={[0, -30, -0.5]}
           scale={[5, 9, 1]}
           rotation={[0, 0, Math.PI]}
           geometry={geo}
@@ -57,7 +61,7 @@ const City = () => {
           <meshBasicMaterial map={boss} transparent opacity={1} />
         </mesh>
         <mesh
-          position={[0, -33, -1.1]}
+          position={[0, -33, -1.2]}
           scale={[20, 10, 1]}
           rotation={[0, 0, Math.PI]}
           geometry={geo}
@@ -65,7 +69,7 @@ const City = () => {
           <meshBasicMaterial map={front} transparent opacity={1} />
         </mesh>
         <mesh
-          position={[0, -33, -1.2]}
+          position={[0, -33, -1.3]}
           scale={[30, 15, 1]}
           rotation={[Math.PI, 0, 0]}
         >
