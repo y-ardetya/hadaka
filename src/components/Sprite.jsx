@@ -20,11 +20,15 @@ const Sprite = () => {
   return (
     <>
       <SpriteConfig
-        texture={"/nakamura.webp"}
-        scale={2}
-        position={[2, -10, 2]}
+        texture={"/sprites/nakamura.webp"}
+        scale={1.5}
+        position={[2, -5, 2]}
       />
-      <SpriteConfig texture={"/kodera.webp"} scale={2} position={[-2, -3, 2]} />
+      <SpriteConfig
+        texture={"/sprites/kodera.webp"}
+        scale={1.5}
+        position={[-2, -3, 2]}
+      />
     </>
   );
 };

@@ -2,13 +2,14 @@ import React from "react";
 
 const Overlay = () => {
   return (
-    <div className="container">
-      <div className="tatang">
-        <h1>Yontol was here</h1>
+    <>
+      <div className="container">
+        <div>
+          <img className="thunder1" src="/sprites/thunder.png" />
+        </div>
+        <img className="thunder2" src="/sprites/thunder2.png" />
       </div>
-      <img className="thunder1" src="/thunder.png" />
-      <img className="thunder2" src="/thunder2.png" />
-    </div>
+    </>
   );
 };
 
