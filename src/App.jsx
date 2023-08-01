@@ -7,16 +7,16 @@ import { getProject } from "@theatre/core";
 import { SheetProvider } from "@theatre/r3f";
 
 const App = () => {
-  const sheet = getProject("Fly Through").sheet("Scene");
   return (
     <>
-      <Canvas gl={{ antialias: false, preserveDrawingBuffer: true }}>
+      <Canvas
+        gl={{ antialias: false, preserveDrawingBuffer: true }}
+        camera={{ rotation: [0.3, 0, 0] }}
+      >
         {/* <Perf /> */}
         <Suspense fallback={null}>
-          <ScrollControls pages={10}>
-            <SheetProvider sheet={sheet}>
-              <Scroller />
-            </SheetProvider>
+          <ScrollControls pages={6} damping={0.25}>
+            <Scroller />
           </ScrollControls>
         </Suspense>
       </Canvas>
