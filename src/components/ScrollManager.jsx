@@ -1,4 +1,5 @@
 import {
+  Html,
   Image,
   Scroll,
   SpriteAnimator,
@@ -36,11 +37,13 @@ const ScrollManager = () => {
   const scroll = useScroll();
 
   useFrame((state, delta) => {
+    
+
     if (scroll.offset * scroll.pages < 12) {
       group.current.position.y = scroll.offset * scroll.pages;
     }
     if (scroll.offset * scroll.pages > 12) {
-      easing.damp3(camera.rotation, [0.7, 0, 0], 1, delta);
+      easing.damp3(camera.rotation, [0.5, 0, 0], 1, delta);
     } else if (scroll.offset * scroll.pages < 12) {
       easing.damp3(camera.rotation, [0.2, 0, 0], 0.3, delta * 2);
     }
@@ -50,30 +53,35 @@ const ScrollManager = () => {
       easing.damp3(camera.position, [0, 0, 5], 0.3, delta * 2);
     }
     if (scroll.offset * scroll.pages > 13) {
-      easing.damp3(im.current.rotation, [0.7, 0, 0], 0.5, delta * 2);
+      easing.damp3(im.current.rotation, [0.5, 0, 0], 0.5, delta * 2);
       easing.damp3(im.current.scale, [1.5, 1.5, 0], 1, delta);
 
-      easing.damp3(splash1.current.rotation, [0.7, 0, 0], 0.5, delta * 2);
-      easing.damp3(splash1.current.scale, [5, 5, 0], 1, delta);
+      easing.damp3(splash1.current.rotation, [0.5, 0, 0], 0.5, delta * 2);
+      easing.damp3(splash1.current.scale, [40, 40, 0], 1, delta);
 
-      // easing.damp3(splash2.current.rotation, [0.7, 0, 0], 0.5, delta * 2);
-      // easing.damp3(splash2.current.scale, [4, 4, 0], 1, delta);
+      easing.damp3(splash2.current.rotation, [0.5, 0, 0], 0.5, delta * 2);
+      easing.damp3(splash2.current.scale, [4, 4, 0], 1, delta);
 
-      // easing.damp3(splash3.current.rotation, [0.7, 0, 0], 0.5, delta * 2);
-      // easing.damp3(splash3.current.scale, [5, 5, 0], 1, delta);
+      easing.damp3(splash3.current.rotation, [0.5, 0, 3], 0.5, delta * 2);
+      easing.damp3(splash3.current.scale, [5, 5, 0], 1, delta);
     } else {
-      easing.damp3(im.current.rotation, [0, 0, 0], 0.1, delta * 2);
-      easing.damp3(im.current.scale, [0, 0, 0], 0.1, delta);
+      easing.damp3(im.current.rotation, [0, 0, 0], 0.5, delta * 2);
+      easing.damp3(im.current.scale, [0, 0, 0], 0.5, delta * 4);
 
-      easing.damp3(splash1.current.rotation, [0, 0, 0], 0.1, delta * 2);
-      easing.damp3(splash1.current.scale, [0, 0, 0], 0.1, delta);
+      easing.damp3(splash1.current.rotation, [0, 0, 0], 0.3, delta * 0.1);
+      easing.damp3(splash1.current.scale, [0, 0, 0], 0.3, delta);
 
-      // easing.damp3(splash2.current.rotation, [0, 0, 0], 0.1, delta * 2);
-      // easing.damp3(splash2.current.scale, [0, 0, 0], 0.1, delta);
+      easing.damp3(splash2.current.rotation, [0, 0, 0], 0.1, delta * 2);
+      easing.damp3(splash2.current.scale, [0, 0, 0], 0.1, delta);
 
-      // easing.damp3(splash3.current.rotation, [0, 0, 0], 0.1, delta * 2);
-      // easing.damp3(splash3.current.scale, [0, 0, 0], 0.1, delta);
+      easing.damp3(splash3.current.rotation, [0, 0, 3], 0.1, delta * 2);
+      easing.damp3(splash3.current.scale, [0, 0, 0], 0.1, delta);
     }
+
+    // if (scroll.offset * scroll.pages > 18) {
+    //   easing.damp3(camera.rotation, [0, 0, 0], 0.3, delta * 2);
+    //   group.current.position.y = scroll.offset * scroll.pages;
+    // }
   });
 
   return (
@@ -82,7 +90,7 @@ const ScrollManager = () => {
         <Sprite />
         //* TV
         <mesh
-          position={[-1, 2, 0]}
+          position={[-1, 3.5, 0]}
           scale={[1, 1, 1]}
           rotation={[0, 0, Math.PI]}
           geometry={geo}
@@ -90,7 +98,7 @@ const ScrollManager = () => {
           <meshBasicMaterial map={tv1} transparent opacity={1} />
         </mesh>
         <mesh
-          position={[0.5, 2.5, 0]}
+          position={[0.5, 4, 0]}
           scale={[2, 2, 1]}
           rotation={[0, 0, Math.PI]}
           geometry={geo}
@@ -121,7 +129,7 @@ const ScrollManager = () => {
         <mesh
           position={[0, -12, -2]}
           scale={[20, 8, 1]}
-          rotation={[0.1, 0, Math.PI]}
+          rotation={[0, 0, Math.PI]}
           geometry={geo}
         >
           <meshBasicMaterial map={front} transparent opacity={1} />
@@ -170,34 +178,30 @@ const ScrollManager = () => {
             opacity={1}
           />
         </mesh>
-        <Image
-          ref={im}
-          url="/logo-cute.png"
-          position={[0, -11, 2]}
-          scale={0.1}
-          transparent
-        />
+        <Image ref={im} url="/cute.png" position={[0, -15, 4]} scale={3} />
         <Image
           ref={splash1}
-          url="/main.svg"
-          position={[0, -11, 1.9]}
-          scale={2}
+          url="/main.png"
+          position={[0, -11, 4.1]}
+          scale={1}
           transparent
         />
-        {/* <Image
+        <Image
           ref={splash2}
-          url="/left.svg"
-          position={[3, -11, 1.9]}
-          scale={2}
+          url="/left.png"
+          position={[-1.7, -12, 4.1]}
+          rotation={[0.5, 0, 0]}
+          scale={1}
           transparent
         />
         <Image
           ref={splash3}
-          url="/right.svg"
-          position={[-3, -11, 1.9]}
+          url="/left.png"
+          position={[2, -10, 3]}
+          rotation={[0.5, 0, 3]}
           scale={2}
           transparent
-        /> */}
+        />
       </group>
       <Scroll html>
         <Overlay />
