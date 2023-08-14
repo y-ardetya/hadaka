@@ -1,17 +1,26 @@
-import { ScrollControls } from "@react-three/drei";
+import { Loader, ScrollControls } from "@react-three/drei";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import ScrollManager from "./components/ScrollManager";
 import { TrippyMaterial } from "./components/TrippyMaterial";
-import { useRef } from "react";
+import { Suspense, useRef } from "react";
 
 const App = () => {
   return (
-    <Canvas gl={{ antialias: false }} dpr={1} camera={{ rotation: [0, 0, 0] }}>
-      <Background />
-      <ScrollControls pages={15} maxSpeed={3}>
-        <ScrollManager />
-      </ScrollControls>
-    </Canvas>
+    <>
+      <Canvas
+        gl={{ antialias: false }}
+        dpr={1}
+        camera={{ rotation: [0, 0, 0] }}
+      >
+        <Suspense fallback={null}>
+          <Background />
+          <ScrollControls pages={15} maxSpeed={3}>
+            <ScrollManager />
+          </ScrollControls>
+        </Suspense>
+      </Canvas>
+      <Loader />
+    </>
   );
 };
 
